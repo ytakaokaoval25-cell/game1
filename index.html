@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Block Combo Puzzle Prototype</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Prototype 001</p>
+        <h1>Block Combo Puzzle</h1>
+        <p class="lead">3つのブロックを盤面に置き、縦横ラインを消してコンボを狙うシンプルパズル。</p>
+      </div>
+      <section class="score-card" aria-label="スコア">
+        <span>Score</span>
+        <strong id="score">0</strong>
+        <small>Best <b id="best">0</b></small>
+      </section>
+    </header>
+
+    <section class="status-row">
+      <div class="pill">Combo <b id="combo">x1</b></div>
+      <div class="pill">Lines <b id="lines">0</b></div>
+      <button id="resetBtn" class="ghost-btn">Reset</button>
+    </section>
+
+    <section class="game-layout">
+      <div class="board-wrap">
+        <div id="board" class="board" aria-label="ゲーム盤面"></div>
+        <div id="message" class="message" aria-live="polite"></div>
+      </div>
+
+      <aside class="pieces-panel">
+        <h2>Next Blocks</h2>
+        <p>ブロックを選んで、盤面の置きたい場所をタップ。</p>
+        <div id="pieces" class="pieces"></div>
+      </aside>
+    </section>
+
+    <section class="rules">
+      <h2>How to Play</h2>
+      <ol>
+        <li>下の3つのブロックから1つ選びます。</li>
+        <li>8×8の盤面に置きます。赤く光る場所は置けません。</li>
+        <li>縦または横がすべて埋まるとラインが消えます。</li>
+        <li>3つすべて置き終えると、新しいブロックが補充されます。</li>
+      </ol>
+    </section>
+  </main>
+
+  <dialog id="gameOverDialog" class="dialog">
+    <h2>Game Over</h2>
+    <p>置けるブロックがなくなりました。</p>
+    <p class="final-score">Score <strong id="finalScore">0</strong></p>
+    <button id="playAgainBtn" class="primary-btn">もう一度遊ぶ</button>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
